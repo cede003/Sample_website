@@ -1,0 +1,233 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*DO NOT EDIT UNLESS LABELED "EDITABLE"*/
+
+body {
+    margin:0;
+}
+p {
+    margin:0;
+    padding:0;
+    z-index:6;
+    font-family:Arial, sans-serif;
+    font-size:1vw;
+}
+#warning {
+    position:absolute;
+    top:0px;
+    left:0px;
+    margin:5px;
+    padding:5px;
+    z-index:6;
+    font-family:Arial, sans-serif;
+    font-size:28px;
+    border-radius:10px;
+    background-color:rgba(255,255,255,0.5);
+}
+#loader {
+    position:fixed;
+    top:50%;
+    left:50%;
+    z-index:6;
+    width:100px;
+    height:100px;
+    margin:-50px 0 0 -50px;
+    border:20px solid rgba(200,200,200,1);
+    border-radius:50%;
+    border-top:20px solid rgba(0,82,147,1);
+    animation:spin 2s linear infinite;
+    -webkit-animation:spin 2s linear infinite;
+}
+#divLinks img, #warning, #button-link {
+    -user-select:none;
+    -user-drag:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+    -khtml-user-select:none;
+    -khtml-user-drag:none;
+    -moz-user-select:none;
+    -moz-user-drag:none;
+    -ms-user-select:none;
+    -ms-user-drag:none;
+}
+#divLinks, #lv0, #lv1, #lv2, #lv3, #lv4, #lv5, #lv6, #lv7, #lv8, #lv9 {
+    position:relative;
+    max-width:1900px; /* EDITABLE: match the width of the canvas (check any of the 'overlay' or 'main-' image sizes) */
+    max-height:950px; /* EDITABLE: match the height of the canvas */
+}
+#main-lv0, #main-lv1, #main-lv2, #main-lv3, #main-lv4, #main-lv5, #main-lv6, #main-lv7, #main-lv8, #main-lv9 {
+    position:absolute;
+    max-width:100%;
+    top:0px;
+    left:0px;
+    z-index:0;
+}
+#bg {
+    max-width:100%;
+    z-index:-1;
+}
+
+#searchForm {
+    position:absolute;
+    top:6%;
+    left:74%;
+    z-index:10;
+}
+input[type=text] {
+    width:40%;
+    border:none;
+    font-size:1vw;
+    background-color:white;
+    background-image:url('../../images/searchicon.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    padding:0.5vw 0.5vw 0.5vw 3vw;
+    transition:width 0.4s ease-in-out;
+    -webkit-transition:width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width:100%;
+}
+.directory {
+    max-width:100%;
+    position:absolute;
+    top:11%;
+    left:74%;
+    z-index:1;
+}
+
+#icon0, #icon1, #icon2, #icon3, #icon4, #icon5, #icon6, #icon7, #icon8, #icon9 {
+    max-width:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:1;
+}
+#button-showall {
+    max-width:7.8%;
+    position:absolute;
+    top:76.5%; /* EDITABLE: move up if there are more than 2 legend buttons */
+    left:73%;
+    z-index:5;
+}
+#button-hideall {
+    max-width:7.8%;
+    position:absolute;
+    top:76.5%; /* EDITABLE: match the show button */
+    left:81%;
+    z-index:5;
+}
+#legend0 { /* for the image "legend-movement.png" */
+    max-width:9.26%; /* EDITABLE: use the formula (image width/canvas width)*100, so for example (176/1900)*100 = 9.26 */
+    position:absolute;
+    top:82%; /* EDITABLE: if more than 2 legend buttons, move up with the show/hide buttons, 5.5% in between */
+    left:73%;
+    z-index:5;
+}
+#legend1 { /* for the image "legend-washrooms.png" */
+    max-width:10.05%; /* EDITABLE: use the formula (image width/canvas width)*100, so for example (191/1900)*100 = 10.05 */
+    position:absolute;
+    top:87.5%; /* EDITABLE: if more than 2 legend buttons, move up with #legend0, 5.5% in between */
+    left:73%;
+    z-index:5;
+}
+#legend2 { /* for the image "legend-info.png" */
+    max-width:15.84%; /* EDITABLE: use the formula (image width/canvas width)*100, so for example (301/1900)*100 = 15.84 */
+    position:absolute;
+    top:93%;
+    left:73%;
+    z-index:5;
+}
+
+#button-lv0 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:74%;
+    z-index:5;
+}
+#button-lv1 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:76.6%;
+    z-index:5;
+}
+#button-lv2 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:79.2%;
+    z-index:5;
+}
+#button-lv3 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:81.8%;
+    z-index:5;
+}
+#button-lv4 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:84.4%;
+    z-index:5;
+}
+#button-lv5 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:87%;
+    z-index:5;
+}
+#button-lv6 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:89.6%;
+    z-index:5;
+}
+#button-lv7 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:92.2%;
+    z-index:5;
+}
+#button-lv8 {
+    max-width:2.4%;
+    position:absolute;
+    top:1%;
+    left:94.8%;
+    z-index:5;
+}
+
+#button-link {
+    max-width:16.05%; /* EDITABLE: use the formula (image width/canvas width)*100, so for example (305/1900)*100 = 16.05 */
+    position:absolute;
+    top:92%;
+    left:2%;
+    z-index:7;
+}
+#levels img:hover,
+#button-showall:hover, #button-hideall:hover, #button-back:hover, #button-link:hover,
+#legend-lv0 img:hover, #legend-lv1 img:hover, #legend-lv2 img:hover, #legend-lv3 img:hover, #legend-lv4 img:hover, #legend-lv5 img:hover {
+    cursor:pointer;
+}
+#levels img:active,
+#button-showall:active, #button-hideall:active, #button-back:active, #button-link:active,
+#legend-lv0 img:active, #legend-lv1 img:active, #legend-lv2 img:active, #legend-lv3 img:active, #legend-lv4 img:active, #legend-lv5 img:active {
+    transform:scale(0.9,0.9);
+    opacity:0.5;
+}
+
+@keyframes spin {
+    0% { transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform:rotate(0deg); }
+    100% { -webkit-transform:rotate(360deg); }
+}

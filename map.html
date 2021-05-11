@@ -1,0 +1,323 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="icon" sizes="192x192" href="images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<script src="assets/js/mark.min.js"></script>
+	<script type="text/javascript" src="assets/js/map.js"></script>
+
+	<!-- EDITABLE: name of the hospital -->
+	<title><Map View></title>
+</head>
+
+<body>
+
+<header id="header">
+	<a class="logo" href="index.html">Cactus Track</a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<nav id="menu">
+	<ul class="links">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="map.html">Map</a></li>
+		<li><a href="trends.html">Trends</a></li>
+		<li><a href="list.html">List</a></li>
+		<li><a href="send.html">Send</a></li>
+	</ul>
+</nav>
+
+<div id="heading" >
+	<h1>Map View</h1>
+</div>
+
+<div id="loader"></div>
+
+<!--main div containing everything-->
+<div id="divLinks">
+	<!-- EDITABLE: link to the hospital's webpage on www.fraserhealth.ca -->
+	<a href="https://www.fraserhealth.ca/Service-Directory/Locations/Surrey/surrey-memorial-hospital" target="_blank"><img id="button-link" src="images/button-link.png"></a>
+	<div id="levels">
+		<!--buttons for switching between containers (displaying different levels of the map)
+    EDITABLE: add or remove extra buttons depending on how many levels the hospital has-->
+		<img id="button-lv0" src="images/button-lv0.png" onClick="showDiv('lv0')">
+		<img id="button-lv1" src="images/button-lv1.png" onClick="showDiv('lv1')">
+		<img id="button-lv2" src="images/button-lv2.png" onClick="showDiv('lv2')">
+		<img id="button-lv3" src="images/button-lv3.png" onClick="showDiv('lv3')">
+		<img id="button-lv4" src="images/button-lv4.png" onClick="showDiv('lv4')">
+		<img id="button-lv5" src="images/button-lv5.png" onClick="showDiv('lv5')">
+		<img id="button-lv6" src="images/button-lv6.png" onClick="showDiv('lv6')">
+		<img id="button-lv7" src="images/button-lv7.png" onClick="showDiv('lv7')">
+		<img id="button-lv8" src="images/button-lv8.png" onClick="showDiv('lv8')">
+	</div>
+	<form id="searchForm" onSubmit="return false">
+		<input type="text" id="searchItem" class="form-control input-sm" placeholder="Search..." autocomplete="off">
+	</form>
+	<!--level 0-->
+	<div id="lv0">
+		<img id="main-lv0" src="images/main-lv0.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv0">
+			<p>
+				<span style="color:#6d6e70">■</span> Parking<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine Lecture Theatre
+			</p>
+		</div>
+		<div id="icon-lv0">
+			<img id="icon0" src="images/icon-lv0-movement.png">
+			<img id="icon1" src="images/icon-lv0-washrooms.png">
+			<!--EDITABLE: add or remove extra icons, match with legend-->
+		</div>
+		<div id="legend-lv0">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv0')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv0')">
+			<!--EDITABLE: add or remove extra legend buttons, match with icons-->
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv0', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv0', 'none', '0.5')">
+	</div>
+	<!--level 1-->
+	<div id="lv1">
+		<img id="main-lv1" src="images/main-lv1.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv1">
+			<p>
+				<span style="color:#7c51a1">■</span> Adolescent Psychiatry<br/>
+				<span style="color:#5588c6">■</span> Anatomical Pathology<br/>
+				<span style="color:#7c51a1">■</span> Child Youth Service Clinic<br/>
+				<span style="color:#7c51a1">■</span> Child Youth Service Inpatient<br/>
+				<span style="color:#5588c6">■</span> Diagnostic Imaging<br/>
+				<span style="color:#a3cf62">■</span> Emergency<br/>
+				<span style="color:#b9d9f2">■</span> Fraser Valley Cancer Clinic<br/>
+				<span style="color:#5588c6">■</span> Medical Records<br/>
+				<span style="color:#5588c6">■</span> North 1 Medical Inpatient Unit<br/>
+				<span style="color:#f58245">■</span> Occupational Therapy<br/>
+				<span style="color:#f58245">■</span> OR Booking & Registration<br/>
+				<span style="color:#7c51a1">■</span> PACU<br/>
+				<span style="color:#5588c6">■</span> Pharmacy<br/>
+				<span style="color:#f58245">■</span> Physiotherapy<br/>
+				<span style="color:#a3cf62">■</span> Security<br/>
+				<span style="color:#7c51a1">■</span> Surgery
+			</p>
+		</div>
+		<div id="icon-lv1">
+			<img id="icon0" src="images/icon-lv1-movement.png">
+			<img id="icon1" src="images/icon-lv1-washrooms.png">
+			<img id="icon2" src="images/icon-lv1-info.png">
+			<!--EDITABLE: add or remove extra icons, match with legend-->
+		</div>
+		<div id="legend-lv1">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv1')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv1')">
+			<img id="legend2" src="images/legend-info.png" onClick="highlight('2', 'lv1')">
+			<!--EDITABLE: add or remove extra legend buttons, match with icons-->
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv1', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv1', 'none', '0.5')">
+	</div>
+	<!--level 2, copy of previous div-->
+	<div id="lv2">
+		<img id="main-lv2" src="images/main-lv2.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv2">
+			<p>
+				<span style="color:#5588c6">■</span> Ambulatory Care<br/>
+				<span style="color:#5588c6">■</span> Cafe<br/>
+				<span style="color:#f58245">■</span> Cafeteria<br/>
+				<span style="color:#5588c6">■</span> Cardiology<br/>
+				<span style="color:#5588c6">■</span> Eye Care Surgery<br/>
+				<span style="color:#5588c6">■</span> Eye Clinic<br/>
+				<span style="color:#7c51a1">■</span> Family Birthing Unit<br/>
+				<span style="color:#5588c6">■</span> Foundation<br/>
+				<span style="color:#b9d9f2">■</span> Fraser Valley Cancer Clinic<br/>
+				<span style="color:#a3cf62">■</span> Neonatal Intensive Care Unit (NICU)<br/>
+				<span style="color:#5588c6">■</span> Nuclear Medicine<br/>
+				<span style="color:#5588c6">■</span> Outpatient Lab<br/>
+				<span style="color:#a87b4f">■</span> Rehab<br/>
+				<span style="color:#5588c6">■</span> Renal Dialysis<br/>
+				<span style="color:#a3cf62">■</span> Ronald McDonald Family Room<br/>
+				<span style="color:#a87b4f">■</span> Security<br/>
+				<span style="color:#5588c6">■</span> Short Stay Medical Unit<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine<br/>
+				<span style="color:#a87b4f">■</span> Volunteer
+			</p>
+		</div>
+		<div id="icon-lv2">
+			<img id="icon0" src="images/icon-lv2-movement.png">
+			<img id="icon1" src="images/icon-lv2-washrooms.png">
+			<img id="icon2" src="images/icon-lv2-info.png">
+		</div>
+		<div id="legend-lv2">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv2')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv2')">
+			<img id="legend2" src="images/legend-info.png" onClick="highlight('2', 'lv2')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv2', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv2', 'none', '0.5')">
+	</div>
+	<!--level 3-->
+	<div id="lv3">
+		<img id="main-lv3" src="images/main-lv3.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv3">
+			<p>
+				<span style="color:#a3cf62">■</span> ER Administration<br/>
+				<span style="color:#5588c6">■</span> General Medicine Inpatient Unit<br/>
+				<span style="color:#7c51a1">■</span> General Surgery Inpatient Unit<br/>
+				<span style="color:#b9d9f2">■</span> Fraser Valley Cancer Clinic<br/>
+				<span style="color:#f58245">■</span> Neurology Inpatient Unit<br/>
+				<span style="color:#7c51a1">■</span> Orthopaedics Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> Surrey Memorial Hospital Administration<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine Administration<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine Clinical Skills Lab<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine Library<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine On-Call Suite
+			</p>
+		</div>
+		<div id="icon-lv3">
+			<img id="icon0" src="images/icon-lv3-movement.png">
+			<img id="icon1" src="images/icon-lv3-washrooms.png">
+		</div>
+		<div id="legend-lv3">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv3')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv3')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv3', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv3', 'none', '0.5')">
+	</div>
+	<!--level 4-->
+	<div id="lv4">
+		<img id="main-lv4" src="images/main-lv4.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv4">
+			<p>
+				<span style="color:#f58245">■</span> Adolescent Psychiatry Inpatient Unit<br/>
+				<span style="color:#a87b4f">■</span> Cardiac Clinical Trials<br/>
+				<span style="color:#5588c6">■</span> Cardiology Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> Laboratory & Pathology Medicine<br/>
+				<span style="color:#5588c6">■</span> Medical Respiratory Inpatient Unit<br/>
+				<span style="color:#a87b4f">■</span> Mental Health Offices<br/>
+				<span style="color:#f58245">■</span> Psychiatric Assessment & Inpatient Unit<br/>
+				<span style="color:#a87b4f">■</span> Social Work Offices<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine
+			</p>
+		</div>
+		<div id="icon-lv4">
+			<img id="icon0" src="images/icon-lv4-movement.png">
+			<img id="icon1" src="images/icon-lv4-washrooms.png">
+		</div>
+		<div id="legend-lv4">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv4')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv4')">
+			<img id="legend2" src="images/legend-vent.png">
+
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv4', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv4', 'none', '0.5')">
+	</div>
+	<!--level 5-->
+	<div id="lv5">
+		<img id="main-lv5" src="images/main-lv5.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv5">
+			<p>
+				<span style="color:#f58245">■</span> Acute Care For Elders Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> Intensive Care Inpatient Unit<br/>
+				<span style="color:#5588c6">■</span> Medical Oncology Inpatient Unit<br/>
+				<span style="color:#5588c6">■</span> Medicine Inpatient Unit<br/>
+				<span style="color:#5588c6">■</span> Palliative Care Unit<br/>
+				<span style="color:#5588c6">■</span> Spiritual Care<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine
+			</p>
+		</div>
+		<div id="icon-lv5">
+			<img id="icon0" src="images/icon-lv5-movement.png">
+			<img id="icon1" src="images/icon-lv5-washrooms.png">
+		</div>
+		<div id="legend-lv5">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv5')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv5')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv5', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv5', 'none', '0.5')">
+	</div>
+	<!--level 6-->
+	<div id="lv6">
+		<img id="main-lv6" src="images/main-lv6.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv6">
+			<p>
+				<span style="color:#a3cf62">■</span> High Acuity Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine
+			</p>
+		</div>
+		<div id="icon-lv6">
+			<img id="icon0" src="images/icon-lv6-movement.png">
+			<img id="icon1" src="images/icon-lv6-washrooms.png">
+		</div>
+		<div id="legend-lv6">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv6')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv6')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv6', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv6', 'none', '0.5')">
+	</div>
+	<!--level 7-->
+	<div id="lv7">
+		<img id="main-lv7" src="images/main-lv7.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv7">
+			<p>
+				<span style="color:#a3cf62">■</span> Medicine & Nephrology Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine
+			</p>
+		</div>
+		<div id="icon-lv7">
+			<img id="icon0" src="images/icon-lv7-movement.png">
+			<img id="icon1" src="images/icon-lv7-washrooms.png">
+		</div>
+		<div id="legend-lv7">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv7')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv7')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv7', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv7', 'none', '0.5')">
+	</div>
+	<!--level 8-->
+	<div id="lv8">
+		<img id="main-lv8" src="images/main-lv8.png">
+		<img id="bg" src="images/bg.png">
+		<div class="directory" id="directory-lv8">
+			<p>
+				<span style="color:#a3cf62">■</span> Neurology Inpatient Unit<br/>
+				<span style="color:#a3cf62">■</span> UBC Faculty of Medicine
+			</p>
+		</div>
+		<div id="icon-lv8">
+			<img id="icon0" src="images/icon-lv8-movement.png">
+			<img id="icon1" src="images/icon-lv8-washrooms.png">
+		</div>
+		<div id="legend-lv8">
+			<img id="legend0" src="images/legend-movement.png" onClick="highlight('0', 'lv8')">
+			<img id="legend1" src="images/legend-washrooms.png" onClick="highlight('1', 'lv8')">
+		</div>
+		<img id="button-showall" src="images/button-showall.png" onClick="allButton('lv8', 'block', '1.0')">
+		<img id="button-hideall" src="images/button-hideall.png" onClick="allButton('lv8', 'none', '0.5')">
+	</div>
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

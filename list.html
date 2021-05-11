@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>List View</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload" >
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="index.html">Cactus Track</a>
+				<nav>
+					<a href="#menu">Menu</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="map.html">Map</a></li>
+					<li><a href="trends.html">Trends</a></li>
+					<li><a href="list.html">List</a></li>
+					<li><a href="send.html">Send</a></li>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>List View</h1>
+			</div>
+
+
+		<div class="table-responsive">
+			<table class="table" id="myTable">
+				<thead>
+				<tr>
+					<th onclick="sortTable(0)" style="cursor: pointer; font-size: xx-large !important;">Status</th>
+					<th onclick="sortTable(1)" style="cursor: pointer; font-size: xx-large !important;">Model Type</th>
+					<th onclick="sortTable(2)" style="cursor: pointer; font-size: xx-large !important;">Location</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table></div>
+		<div class="filters">
+			<input type="search" value="Search" onfocus="if(this.value === 'Search') {this.value=''}" onblur="if(this.value === ''){this.value ='Search'}">
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" id="formCheck-1">
+				<label class="form-check-label float-left" for="formCheck-1" style="margin-top: 10px">In use</label>
+			</div>
+		</div>
+
+
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+
+		<script>
+			function sortTable(n) {
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("myTable");
+				switching = true;
+				dir = "asc";
+				while (switching) {
+					switching = false;
+					rows = table.rows;
+
+					for (i = 1; i < (rows.length - 1); i++) {
+						shouldSwitch = false;
+						x = rows[i].getElementsByTagName("td")[n];
+						console.log(rows[i])
+						y = rows[i + 1].getElementsByTagName("td")[n];
+
+						if (dir == "asc") {
+							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
+						} else if (dir == "desc") {
+							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
+						}
+					}
+					if (shouldSwitch) {
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+						switching = true;
+						// Each time a switch is done, increase this count by 1:
+						switchcount ++;
+					} else {
+						/* If no switching has been done AND the direction is "asc",
+                        set the direction to "desc" and run the while loop again. */
+						if (switchcount == 0 && dir == "asc") {
+							dir = "desc";
+							switching = true;
+						}
+					}
+				}
+			}
+		</script>
+		<script>
+			$(document).ready(function() {
+
+				promise = $.ajax({
+					type:"GET",
+					dataType:"text",
+					url:"data.csv",
+					cache:false
+				});
+
+				promise.done(function(data){
+
+					//Parse CSV File
+					//split on new line
+					var dataArr = data.split("\n");
+
+					//for each line in array
+					$.each(dataArr,function(){
+						if (this != "") {
+
+							//split files and create row
+							var row = new String("");
+							valArr = this.split(",");
+							row += "<tr>"
+
+							$.each(valArr, function(){
+								row += "<td>" + this +"</td>"
+							});
+
+							row += "</tr>"
+
+							//Add row to table
+							$('tbody').append(row);
+
+						}
+
+					});
+
+				});
+
+				// Run script if request fails
+				promise.fail(function() {
+					console.log('A failure ocurred');
+				});
+
+			});
+		</script>
+
+	</body>
+</html>
